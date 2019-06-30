@@ -1,0 +1,8 @@
+
+# to run flask project
+
+    # full path
+    export FLASK_APP=/home/mayar/PycharmProjects/Thesis/__init__.py
+
+    #run command
+    python3 -m flask run
