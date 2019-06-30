@@ -1,0 +1,1 @@
+FLASK_APP=/home/mayar/PycharmProjects/Thesis/thesis/__init__.py
