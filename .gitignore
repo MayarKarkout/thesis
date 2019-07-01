@@ -3,6 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 thesis/__pycache__/
+thesis/__pycache__/*
 .idea/
 
 # C extensions
