@@ -13,7 +13,7 @@ class User(UserMixin, db.Model):
     password = db.Column(db.String(100))
     name = db.Column(db.String(64), index=True, unique=True)
     # profile_id = db.Column(db.Integer, ForeignKey('profile.id'))
-    profile = db.relationship('Profile', back_populates='user', uselist=False)
+    profile = db.relationship('Profile', back_populates='user', cascade="all,delete", uselist=False)
 
     def __repr__(self):
         return '<User {}>'.format(self.username)
@@ -30,4 +30,4 @@ class Profile(db.Model):
     user = db.relationship('User', back_populates='profile')
 
     def __repr__(self):
-        return '<Post {}>'.format(self.body)
+        return '<Profile {}>'.format(self.user_id)
