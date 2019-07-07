@@ -16,7 +16,7 @@ class User(UserMixin, db.Model):
     profile = db.relationship('Profile', back_populates='user', cascade="all,delete", uselist=False)
 
     def __repr__(self):
-        return '<User {}>'.format(self.username)
+        return '<User {}>'.format(self.name)
 
 
 class Profile(db.Model):
@@ -30,4 +30,4 @@ class Profile(db.Model):
     user = db.relationship('User', back_populates='profile')
 
     def __repr__(self):
-        return '<Profile {}>'.format(self.user_id)
+        return '<Profile {}>'.format(self.user_id, self.first_name, self.last_name)
