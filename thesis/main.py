@@ -32,6 +32,10 @@ def profile_post():
         current_user.profile.country = request.form.get('country')
     if request.form.get('city') is not None and request.form.get('city') != "":
         current_user.profile.city = request.form.get('city')
+    if request.form.get('friend_id') is not None and request.form.get('friend_id') != "":
+        current_user.friend_id = request.form.get('friend_id')
+        friend = User.query.get(request.form.get('friend_id'))
+        friend.friend_id = current_user.id
 
     db.session.commit()
 
