@@ -75,6 +75,20 @@
                 </div>
             </div>
 
+            <div class="field">
+                <div class="control">
+                    City
+                    <input class="input is-large" type="number" name="friend_id"
+                           {% if current_user.profile.city is not none %}
+                           placeholder={{current_user.profile.city}}
+                           {% else %}
+                           placeholder="friend"
+                           {% endif %}
+                           autofocus=""
+                    >
+                </div>
+            </div>
+
             <button class="button is-block is-info is-large is-fullwidth">Save</button>
         </form>
     </div>

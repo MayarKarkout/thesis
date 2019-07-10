@@ -2,6 +2,7 @@ from flask_login import UserMixin
 from datetime import datetime
 
 from sqlalchemy import ForeignKey
+from sqlalchemy.orm import backref
 
 from thesis import db
 
@@ -13,7 +14,9 @@ class User(UserMixin, db.Model):
     password = db.Column(db.String(100))
     name = db.Column(db.String(64), index=True, unique=True)
     # profile_id = db.Column(db.Integer, ForeignKey('profile.id'))
-    profile = db.relationship('Profile', back_populates='user', cascade="all,delete", uselist=False)
+    profile = db.relationship('Profile', back_populates='user', cascade='all,delete', uselist=False)
+    friend_id = db.Column(db.Integer, ForeignKey('user.id'))
+    friend = db.relationship('User', uselist=False)
 
     def __repr__(self):
         return '<User {}>'.format(self.name)
